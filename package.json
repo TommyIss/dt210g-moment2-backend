@@ -1,0 +1,21 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@fastify/cors": "^11.2.0",
+    "@fastify/mysql": "^5.0.2",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "fastify": "^5.7.4",
+    "nodemon": "^3.1.14"
+  }
+}
