@@ -8,6 +8,7 @@ require('dotenv').config();
 let cors = require('@fastify/cors');
 let port = process.env.PORT | 3000;
 let host = '0.0.0.0';
+let todosRoutes= require('./routes/todos.routes');
 
 // Anslutnings konfigurationer till databasen
 fastify.register(mysql, {
@@ -29,6 +30,8 @@ fastify.register(cors, {
 fastify.get('/', (req, reply) => {
     reply.send({message: 'Välkomment till webbtjänst för Moment 2 i kursen DT210G, Fördjupad frontend-utveckling'});
 });
+
+fastify.register(todosRoutes);
 
 // Starta servern
 fastify.listen({ port: port, host: host }, (err, adress) => {
