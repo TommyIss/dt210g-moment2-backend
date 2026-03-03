@@ -154,7 +154,9 @@ async function editTodo(fastify, req, reply) {
             return reply.code(404).send({ message: 'Ingen todo hittades med det id:et'});
         }
 
-        return reply.code(200).send({ message: `Todo med id: ${id} har uppdaterats`});
+        let row = await TodoModel.getTodoById(fastify.mysql, req.params.id);
+
+        return reply.code(200).send({ message: `Todo med id: ${id} har uppdaterats`, updatedTodo: row});
 
     } catch (err) {
         fastify.log.error(err);
